@@ -1,0 +1,291 @@
+/*
+=============================================================================
+Elegant Feminine Portfolio Theme – DARK MODE
+Soft • Confident • Professional • Responsive
+=============================================================================
+*/
+
+/* 🌙 DARK COLOR PALETTE */
+:root {
+    --primary: #b38bff;        /* Soft Purple */
+    --secondary: #5b3cc4;      /* Deep Violet */
+    --accent: #9aa4ff;         /* Muted Accent */
+    --background: #0f0f1a;     /* Dark Background */
+    --card-bg: #1a1a2e;        /* Card Dark */
+    --text-dark: #e5e7eb;      /* Main Text */
+    --text-light: #b8b8d1;     /* Secondary Text */
+    --border-light: #2d2d4d;
+}
+
+/* ===================== RESET ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===================== BASE ===================== */
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: var(--background);
+    color: var(--text-dark);
+    line-height: 1.75;
+}
+
+/* ===================== CONTAINER ===================== */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    min-height: calc(100vh - 160px);
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand a {
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #e5e7eb;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: background 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ===================== HERO ===================== */
+.hero {
+    text-align: center;
+    padding: 80px 30px;
+    background: linear-gradient(180deg, #1a1a2e, #0f0f1a);
+    border-radius: 22px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+
+.hero h1 {
+    font-size: 46px;
+}
+
+.hero .title {
+    font-size: 22px;
+    color: var(--primary);
+}
+
+.hero .bio {
+    margin-top: 15px;
+    font-size: 18px;
+    color: var(--text-light);
+}
+
+/* ===================== CARDS ===================== */
+.card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 22px;
+    margin-bottom: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.card h2 {
+    margin-bottom: 16px;
+    color: var(--primary);
+    border-bottom: 2px dashed var(--border-light);
+    padding-bottom: 8px;
+}
+
+/* ===================== SKILLS ===================== */
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.skill-bar {
+    background: #2d2d4d;
+    border-radius: 12px;
+    height: 12px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    width: 0;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    transition: width 1.2s ease;
+}
+
+/* ===================== PROJECTS ===================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+.project-card {
+    background: var(--card-bg);
+    padding: 26px;
+    border-radius: 22px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-tag {
+    background: #2d2d4d;
+    color: var(--primary);
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+
+/* ===================== STATUS ===================== */
+.status {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 14px;
+    font-size: 12px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.status-completed {
+    background: #052e2b;
+    color: #6ee7b7;
+}
+
+.status-in-progress {
+    background: #3b1d0c;
+    color: #fdba74;
+}
+
+/* ===================== BUTTONS ===================== */
+.btn {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 999px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: #2d2d4d;
+    color: var(--primary);
+}
+
+.btn-secondary:hover {
+    background: #3b3b66;
+}
+
+/* ===================== INFO BOX ===================== */
+.info-box {
+    border-left: 5px solid var(--primary);
+    background: #1f1f3a;
+    padding: 18px 22px;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+/* ===================== CONTACT ===================== */
+.contact-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+    background: linear-gradient(135deg, var(--secondary), var(--primary));
+    color: #ffffff;
+    text-align: center;
+    padding: 26px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .container {
+        padding: 24px 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .footer {
+        font-size: 14px;
+    }
+}

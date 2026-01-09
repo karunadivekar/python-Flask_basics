@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>karuna | Flask Single Page</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+            padding-top: 80px;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: #4b0082;
+            padding: 15px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: white;
+            margin: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #d9b3ff;
+            color: #4b0082;
+        }
+
+        nav a.active {
+            background: #ffccff;
+            color: #4b0082;
+        }
+
+        /* SECTIONS */
+        section {
+            background: white;
+            margin: 25px auto;
+            padding: 25px;
+            width: 80%;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: 0.4s;
+        }
+
+        section.active-section {
+            background: #f3e6ff;
+            border: 2px solid #b366ff;
+        }
+
+        h2 {
+            color: #4b0082;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        th {
+            background: #e6ccff;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="#home" class="nav-link active">Home</a>
+    <a href="#profile" class="nav-link">Profile</a>
+    <a href="#skills" class="nav-link">Skills</a>
+    <a href="#projects" class="nav-link">Projects</a>
+    <a href="#grades" class="nav-link">Grades</a>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active-section">
+    <h2>wellcome karuna </h2>
+    <p>This is a Flask-based single page application created as part of my web development learning. </strong></p>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+    <h2>Profile</h2>
+    <p><b>Name:</b> {{ user.name }}</p>
+    <p><b>Age:</b> {{ user.age }}</p>
+    <p><b>Course:</b> {{ user.course }}</p>
+    <p><b>Email:</b> {{ user.email }}</p>
+    <p><b>City:</b> {{ user.city }}</p>
+    <p><b>Status:</b>
+        {% if user.is_enrolled %}
+            Enrolled ✅
+        {% else %}
+            Not Enrolled ❌
+        {% endif %}
+    </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2>Skills</h2>
+    <ul>
+        {% for skill in skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+    <h2>Projects</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Technology</th>
+        </tr>
+        {% for project in projects %}
+        <tr>
+            <td>{{ project.name }}</td>
+            <td>{{ project.status }}</td>
+            <td>{{ project.tech }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+
+<!-- GRADES -->
+<section id="grades">
+    <h2>Grades</h2>
+    <ul>
+        {% for subject, grade in grades.items() %}
+            <li>{{ subject }} : {{ grade }}</li>
+        {% endfor %}
+    </ul>
+</section>
+
+<!-- JAVASCRIPT -->
+<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+
+            navLinks.forEach(l => l.classList.remove('active'));
+            sections.forEach(s => s.classList.remove('active-section'));
+
+            link.classList.add('active');
+
+            const id = link.getAttribute('href').substring(1);
+            document.getElementById(id).classList.add('active-section');
+        });
+    });
+</script>
+
+</body>
+</html>

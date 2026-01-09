@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}{{ info.name }}{% endblock %}</title>
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a href="{{ url_for('home') }}">{{ info.name }}</a>
+        </div>
+
+        <ul class="nav-links">
+            <li>
+                <a href="{{ url_for('home') }}"
+                   class="{% if request.endpoint == 'home' %}active{% endif %}">
+                   Home
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('about') }}"
+                   class="{% if request.endpoint == 'about' %}active{% endif %}">
+                   About
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('projects') }}"
+                   class="{% if request.endpoint in ['projects', 'project_detail'] %}active{% endif %}">
+                   Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('blog') }}"
+                   class="{% if request.endpoint == 'blog' %}active{% endif %}">
+                   Blog
+                </a>
+            </li>
+
+            <li>
+                <a href="{{ url_for('contact') }}"
+                   class="{% if request.endpoint == 'contact' %}active{% endif %}">
+                   Contact
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <p>&copy; 2026 {{ info.name }} | Built with Flask</p>
+        <p class="footer-note">
+            Dark Mode Portfolio • Python Flask
+        </p>
+    </footer>
+
+    <!-- ================= GLOBAL JS ================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll(".skill-progress").forEach(bar => {
+                bar.style.width = bar.dataset.width + "%";
+            });
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>

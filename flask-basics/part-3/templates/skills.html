@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skills</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #fff0e6; }
+        h1 { color: #ff6600; }
+        ul { font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>My Programming Skills</h1>
+    <ul>
+        {% for skill in skills %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
+    <a href="/">Back to Home</a>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #e6f7ff; }
+        h1 { color: #007acc; }
+        p { font-size: 18px; }
+    </style>
+</head>
+<body>
+    <h1>Profile of {{ name }}</h1>
+    <p>Age: {{ age }}</p>
+    <p>Course: {{ course }}</p>
+    <p>Email: {{ email }}</p>
+    <p>City: {{ city }}</p>
+    <p>Status: {% if is_enrolled %}Enrolled{% else %}Not Enrolled{% endif %}</p>
+    <a href="/">Back to Home</a>
+</body>
+</html>

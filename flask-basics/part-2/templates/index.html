@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+
+<body bgcolor="#f4f6f8">
+
+<br><br>
+
+<table align="center" width="80%" cellpadding="20" bgcolor="white">
+    <tr>
+        <td>
+
+            <a href="/">Home</a> &nbsp;&nbsp;
+            <a href="/about">About</a>
+
+            <h1>Welcome to Flask Templates!</h1>
+
+            <p>
+                This page is being served from an HTML file in the
+                <b>templates/</b> folder.
+            </p>
+
+            <table width="100%" cellpadding="15" bgcolor="#eaf3ff">
+                <tr>
+                    <td>
+                        <h3>What's happening?</h3>
+                        <p>When you visit this URL, Flask:</p>
+
+                        <ol>
+                            <li>Receives your browser's request</li>
+                            <li>Matches the URL to the @app.route('/')</li>
+                            <li>Calls the home() function</li>
+                            <li>Loads templates/index.html</li>
+                            <li>Sends this HTML back to your browser</li>
+                        </ol>
+                    </td>
+                </tr>
+            </table>
+
+            <h2>Why Use Templates?</h2>
+
+            <ul>
+                <li><b>Separation of Concerns:</b> Python handles logic, HTML handles presentation</li>
+                <li><b>Easier to Maintain:</b> Edit HTML without touching Python</li>
+                <li><b>Reusability:</b> Same template for different data</li>
+                <li><b>Jinja2 Power:</b> Python-like logic in HTML</li>
+            </ul>
+
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>

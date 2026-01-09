@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}
+About | {{ info.name }}
+{% endblock %}
+
+{% block content %}
+
+<!-- ================= ABOUT ME ================= -->
+<div class="card">
+    <h2>About Me</h2>
+
+    <p style="font-size: 18px; margin-top: 10px; color: var(--text-light);">
+        {{ info.bio }}
+    </p>
+
+    <div class="info-box">
+        <strong>Jinja2 in Action</strong>
+        <p style="margin-top: 6px;">
+            This page demonstrates how Flask passes multiple variables
+            like <code>info</code> and <code>skills</code> from Python
+            to a Jinja2 template.
+        </p>
+    </div>
+</div>
+
+<!-- ================= SKILLS ================= -->
+<div class="card">
+    <h2>My Skills</h2>
+
+    <p style="margin-bottom: 20px; color: var(--text-light);">
+        Click on a skill to view related projects.
+    </p>
+
+    {% for skill in skills %}
+    <div class="skill-item">
+
+        <div class="skill-name">
+            <a href="{{ url_for('skill_projects', slug=skill.slug) }}">
+                {{ skill.name }}
+            </a>
+            <span>{{ skill.level }}%</span>
+        </div>
+
+        <div class="skill-bar">
+            <div class="skill-progress" data-width="{{ skill.level }}"></div>
+        </div>
+
+    </div>
+    {% endfor %}
+</div>
+
+<!-- ================= LEARNING ================= -->
+<div class="card">
+    <h2>What I'm Currently Learning</h2>
+
+    <ul style="margin-left: 20px; color: var(--text-light); line-height: 1.8;">
+        <li>Advanced Python & Flask</li>
+        <li>Frontend development with HTML, CSS & JavaScript</li>
+        <li>Database management (MySQL & SQLite)</li>
+        <li>REST APIs & backend logic</li>
+        <li>Git & GitHub for version control</li>
+    </ul>
+</div>
+
+{% endblock %}

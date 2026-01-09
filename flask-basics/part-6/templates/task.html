@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .detail-card {
+        max-width: 450px;
+        margin: auto;
+        background: #ffffff;
+        padding: 35px;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        text-align: center;   /* 🔥 CENTER EVERYTHING */
+    }
+
+    .detail-card h2 {
+        margin-bottom: 25px;
+        color: #222;
+    }
+
+    .detail-row {
+        font-size: 17px;
+        margin: 10px 0;
+        color: #444;
+    }
+
+    .label {
+        font-weight: bold;
+        color: #111;
+    }
+
+    .completed { color: green; font-weight: bold; }
+    .progress { color: orange; font-weight: bold; }
+    .pending { color: red; font-weight: bold; }
+
+    .back-btn {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 30px;
+        border-radius: 25px;
+        background: linear-gradient(to right, #667eea, #764ba2);
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .back-btn:hover {
+        opacity: 0.9;
+    }
+</style>
+
+<div class="detail-card">
+    <h2>📄 Task Details</h2>
+
+    {% if task %}
+        <div class="detail-row">
+            <span class="label">ID:</span> {{ task.id }}
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Title:</span> {{ task.title }}
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Status:</span>
+            {% if task.status == 'Completed' %}
+                <span class="completed">✔ Completed</span>
+            {% elif task.status == 'In Progress' %}
+                <span class="progress">⏳ In Progress</span>
+            {% else %}
+                <span class="pending">❗ Pending</span>
+            {% endif %}
+        </div>
+
+        <div class="detail-row">
+            <span class="label">Priority:</span> {{ task.priority }}
+        </div>
+    {% endif %}
+
+    <a href="{{ url_for('home') }}" class="back-btn">⬅ Back to Home</a>
+</div>
+{% endblock %}
