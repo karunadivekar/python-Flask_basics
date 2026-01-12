@@ -1,55 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>About</title>
 </head>
 
-<body style="background-color:#f4f6f8; font-family: Arial, sans-serif;">
+<body bgcolor="#f4f6f8">
 
 <br><br>
 
-<table align="center" width="80%" cellpadding="25" style="background-color:white;">
+<table align="center" width="80%" cellpadding="20" bgcolor="white">
     <tr>
         <td>
 
+            <!-- Navigation -->
             <a href="/">Home</a> &nbsp;&nbsp;
-            <a href="/about">About</a>
+            <a href="/about">About</a> &nbsp;&nbsp;
+            <a href="/contact">Contact</a>
 
-            <h1>About This Project</h1>
+            <h1>About This Flask Application</h1>
 
             <p>
-                This is the <strong>About</strong> page.
-                It is rendered using Flask from
-                <code>templates/about.html</code>.
+                This page is also being served from an HTML file in the
+                <b>templates/</b> folder, just like the Home page.
             </p>
 
-            <h2>Flask Route Used</h2>
-
-            <table width="100%" cellpadding="15" style="background-color:#2f2f2f;">
+            <table width="100%" cellpadding="15" bgcolor="#eaf3ff">
                 <tr>
                     <td>
-                        <pre style="color:white; margin:0;">
-@app.route('/about')
-def about():
-    return render_template('about.html')
-                        </pre>
+                        <h3>What happens when you open /about?</h3>
+                        <p>When you visit this URL, Flask:</p>
+
+                        <ol>
+                            <li>Receives your browser's request</li>
+                            <li>Matches the URL to <b>@app.route('/about')</b></li>
+                            <li>Calls the <b>about()</b> function</li>
+                            <li>Loads <b>templates/about.html</b></li>
+                            <li>Sends this HTML back to your browser</li>
+                        </ol>
                     </td>
                 </tr>
             </table>
 
-            <h2>What You Will Learn</h2>
+            <h2>Purpose of This Page</h2>
 
             <ul>
-                <li>How Flask routes work</li>
-                <li>How HTML templates are rendered</li>
-                <li>How to link pages together</li>
-                <li>Basics of Jinja2 templates</li>
+                <li><b>Learning Flask Routing</b></li>
+                <li><b>Understanding Templates</b></li>
+                <li><b>Practicing Multiple Pages</b></li>
+                <li><b>Building Web Apps with Python</b></li>
             </ul>
-
-            <p>
-                <a href="/">← Back to Home</a>
-            </p>
 
         </td>
     </tr>
